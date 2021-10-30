@@ -5,12 +5,12 @@
   padding: 20px 30px;
   border-bottom: 1px solid $greyTwo;
   display: flex;
-  align-items: center;
   img {
     border-radius: 50%;
     width: 120px;
     height: 120px;
     border: 1px solid $greyTwo;
+    margin-top: 5px;
   }
 }
 
