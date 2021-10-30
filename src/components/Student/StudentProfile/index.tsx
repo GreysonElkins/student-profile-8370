@@ -1,4 +1,5 @@
 import type Student from 'types/Student'
+import PlusMinus from 'components/style/Button/PlusMinus'
 
 import './StudentProfile.scss'
 
@@ -24,8 +25,15 @@ const StudentProfile: React.FC<Props> = ({ student: { city, company, email, firs
   return (
     <div className="StudentProfile">
       {pic && <img src={pic} alt={`${firstName ? firstName : 'unnamed student'}'s picture'`} />}
+      <div className="profileExtendButton">
+        <PlusMinus onClick={() => console.log('hi')}/>
+      </div>
       <div className="studentInfo">
-        {(firstName || lastName) && <h3>{firstName} {lastName}</h3>}
+        {(firstName || lastName) && (
+          <h3>
+            {firstName} {lastName}
+          </h3>
+        )}
         {email && <div>Email: {email}</div>}
         {company && <div>Company: {company}</div>}
         {skill && <div>Skill: {skill}</div>}
