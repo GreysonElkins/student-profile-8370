@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify'
-import type Student from 'types/Student'
+import type { ApiStudent } from 'types/Student'
 
-export const getStudents = async (): Promise<{students: Student[]} | undefined> => {
+export const getStudents = async (): Promise<{students: ApiStudent[]} | undefined> => {
   try {
     const response = await fetch('https://api.hatchways.io/assessment/students')
     const reader = response.body?.getReader()
