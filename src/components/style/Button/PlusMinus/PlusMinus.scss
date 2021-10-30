@@ -1,0 +1,57 @@
+@import 'variables.scss';
+
+.PlusMinus {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  padding: 0;
+  .bar {
+    position: absolute;
+    background: $greyThree;
+    height: 5px;
+    width: 28px;
+    border-radius: 5px;
+    transition: background 250ms;
+    top: 15px;
+  }
+  
+  .closed {
+    animation-name: closed;
+    animation-duration: 250ms;
+    animation-iteration-count: 1;
+    animation-fill-mode:forwards;
+  }
+  
+  .open {
+    animation-name: open;
+    animation-duration: 250ms;
+    animation-iteration-count: 1;
+    animation-fill-mode:forwards;
+  }
+
+  @keyframes closed {
+    from {
+      transform: rotate(0deg);
+    }
+    to { 
+      transform: rotate(90deg);
+    }
+  }
+  @keyframes open {
+    from {
+      transform: rotate(90deg);
+    }
+    to { 
+      transform: rotate(0deg);
+    }
+  }
+
+  &:hover {
+    .bar {
+      background: $black;
+    }
+  }
+}
