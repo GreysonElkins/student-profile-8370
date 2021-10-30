@@ -3,6 +3,7 @@ import { getStudents } from 'scripts/API'
 
 import type Student from 'types/Student'
 import StudentProfile from '../StudentProfile'
+import './StudentProfiles.scss'
 
 const StudentProfiles: React.FC = () => {
   const [students, setStudents] = useState<Student[]>([])
@@ -17,7 +18,7 @@ const StudentProfiles: React.FC = () => {
     students.map((student, i) => <StudentProfile student={student} key={`${student}-${i}`} />)
   
 
-  return <div>{printStudentProfiles()}</div>
+  return <div className="StudentProfiles">{printStudentProfiles()}</div>
 }
 
 export default StudentProfiles
