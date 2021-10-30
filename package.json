@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Greyson Elkins",
   "license": "MIT",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -16,5 +20,17 @@
     "@types/react-dom": "^17.0.10",
     "@types/react-router-dom": "^5.3.2",
     "typescript": "^4.4.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
