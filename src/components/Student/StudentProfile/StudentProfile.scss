@@ -1,6 +1,7 @@
 @import 'variables.scss';
 
 .StudentProfile {
+  position: relative;
   padding: 20px 30px;
   border-bottom: 1px solid $greyTwo;
   display: flex;
@@ -11,6 +12,12 @@
     height: 120px;
     border: 1px solid $greyTwo;
   }
+}
+
+.profileExtendButton {
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .studentInfo {
@@ -28,5 +35,8 @@
     text-transform: uppercase;
     white-space: nowrap;
     font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 }
