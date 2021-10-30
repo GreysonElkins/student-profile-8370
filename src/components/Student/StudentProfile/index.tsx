@@ -1,5 +1,7 @@
 import type Student from 'types/Student'
 
+import './StudentProfile.scss'
+
 type Props = {
   student: Student
 }
@@ -20,13 +22,15 @@ const StudentProfile: React.FC<Props> = ({ student: { city, company, email, firs
   }
 
   return (
-    <div>
+    <div className="StudentProfile">
       {pic && <img src={pic} alt={`${firstName ? firstName : 'unnamed student'}'s picture'`} />}
-      {(firstName || lastName) && <h3>{firstName} {lastName}</h3>}
-      {email && <div>Email: {email}</div>}
-      {company && <div>Company: {company}</div>}
-      {skill && <div>Skill: {skill}</div>}
-      <div>average: {getAverage()}</div>
+      <div className="studentInfo">
+        {(firstName || lastName) && <h3>{firstName} {lastName}</h3>}
+        {email && <div>Email: {email}</div>}
+        {company && <div>Company: {company}</div>}
+        {skill && <div>Skill: {skill}</div>}
+        <div>Average: {getAverage()}</div>
+      </div>
     </div>
   )
 }
