@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import 'index.scss'
 
 toast.configure({
   position: 'bottom-center',
