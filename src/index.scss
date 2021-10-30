@@ -4,4 +4,12 @@ body {
   font-family: 'Raleway';
   background-color: rgb(241, 240, 241);
   color: $black;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    // this sort of styling seems like a branding decision
+    // so I've made it universal
+  }
 }
