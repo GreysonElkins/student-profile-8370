@@ -1,5 +1,7 @@
+import StudentProfiles from "components/Student/StudentProfiles"
+
 const App: React.FC = () => {
-  return <div>Hello world</div>  
+  return <StudentProfiles />
 }
 
 export default App
