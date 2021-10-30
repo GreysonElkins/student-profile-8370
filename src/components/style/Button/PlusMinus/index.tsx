@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './PlusMinus.scss'
 
 type Props = {
-  onClick: () => void
+  onClick: (trigger: boolean) => void
 }
 
 const PlusMinus: React.FC<Props> = ({ onClick }) => {
@@ -12,8 +12,10 @@ const PlusMinus: React.FC<Props> = ({ onClick }) => {
     <button 
       className="PlusMinus"
       onClick={() => {
-        setIsOpen(prev => !prev)
-        onClick() 
+        setIsOpen(prev => {
+          onClick(!prev)
+          return !prev
+        }) 
     }}>
       <div className={`vertical bar ${isOpen ? 'open' : 'closed' }`} />
       <div className="horizontal bar" />
