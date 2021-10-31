@@ -1,6 +1,7 @@
 import { useState, useEffect, PropsWithChildren, ReactNode } from 'react'
 import UnderlinedTextField, { ChangeProps } from 'components/style/Field/UnderlinedTextField'
 import Student from 'types/Student'
+import './SearchEngine.scss'
 
 type SearchData = Student
 // other Data types would be allowed for here with `Student | Example | OtherData`
@@ -23,8 +24,10 @@ const SearchEngine = <D extends SearchData>({ children, matchRule, data, ...prop
 
   return (
     <>
-      <UnderlinedTextField {...props} onChange={({ target }) => setQuery(target.value)} />
-      {query && results.length === 0 && <div>No result were found</div>}
+      <div className="engineHeader">
+        <UnderlinedTextField {...props} className="trimmedTextField" onChange={({ target }) => setQuery(target.value)} />
+        {query && results.length === 0 && <div>No result were found</div>}
+      </div>
       {children(results)}
     </>
   )
