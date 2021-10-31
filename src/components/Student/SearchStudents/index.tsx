@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getStudents } from 'scripts/API'
 
 import Student from 'types/Student'
-import SearchEngine from 'Context/Search'
+import SearchEngine from 'components/SearchEngine'
 import StudentProfiles from '../StudentProfiles'
 import SingleWrapper from 'components/style/Card/SingleWrapper'
 import './SearchStudents.scss'
