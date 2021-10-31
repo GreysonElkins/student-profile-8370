@@ -28,7 +28,7 @@ const StudentProfiles: React.FC = () => {
   return (
     <div className="StudentProfiles">
       <UnderlinedTextField
-        placeholder="Search by student, or tags (separate queries by comma)"
+        placeholder="Search by student, or tags"
         onChange={(e) => console.log(e)}
       />
       {printStudentProfiles()}
