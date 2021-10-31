@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type Student from 'types/Student'
 import PlusMinus from 'components/style/Button/PlusMinus'
 
@@ -18,10 +18,12 @@ const StudentProfile: React.FC<Props> = ({ student }) => {
   
   const printTags = () => tags.map((tag, i) => <Pill key={`${id}-tag-${i}`}>{tag}</Pill>)
 
-  // useEffect(() => {
+  useEffect(() => {
+    student.tags = tags
+    // ultimately this would be more nuanced depending on if a tag was added or deleted:
     // update in-app data (student.updateTags)
     // determine type of change to tags (create or delete) update API accordingly
-  // }, [tags])
+  }, [tags])
 
   return (
     <div className="StudentProfile">
