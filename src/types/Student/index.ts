@@ -59,9 +59,9 @@ class Student {
   }
 
   hasMatchingProps = (query: string) => {
-    const values = Object.values(this).flat()
+    const values = Object.values(this).map(value => `${value}`.toLowerCase())
     const queries = splitQuery(query)
-    return queries.every(query => values.includes(query))
+    return queries.every(query => values.some(value => value.includes(query)))
   }
 }
 
