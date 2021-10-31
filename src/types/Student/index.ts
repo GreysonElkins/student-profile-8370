@@ -33,6 +33,7 @@ const parseGrades = (id: string, grades?: string[]) =>
   }
 
 class Student {
+  [key: string]: any
   average: number | "This student hasn't been graded"
   city?: string
   company?: string
