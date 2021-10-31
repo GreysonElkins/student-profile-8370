@@ -8,6 +8,7 @@ export const splitQuery = (query: string) => {
     queries = [query]
   }
   checkForHangingComma(queries)
+  queries = queries.map(query => query.toLowerCase())
   return queries
 }
 
