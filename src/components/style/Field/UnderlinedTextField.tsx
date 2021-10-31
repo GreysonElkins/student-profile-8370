@@ -6,7 +6,7 @@ type Props = {
   className?: string
 }
 
-interface ChangeProps extends Props {
+export interface ChangeProps extends Props {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
   onSubmit?: (event: FormEvent<HTMLFormElement>) => void
 }
