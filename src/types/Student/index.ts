@@ -60,7 +60,9 @@ class Student {
   }
 
   hasMatchingProps = (query: string) => {
-    const values = Object.values(this).map(value => `${value}`.toLowerCase())
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id, grades, average, pic, ...searchableValues } = this
+    const values = Object.values(searchableValues).map(value => `${value}`.toLowerCase()).flat()
     const queries = splitQuery(query)
     return queries.every(query => values.some(value => value.includes(query))) 
     // I suspect line 64 could be achieved with a reduce and be more optimized. 
