@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+.UnderlinedTextField {
+  background: none;
+  border: none;
+  border-bottom: 1px solid $greyTwo;
+  color: $black;
+  font-weight: 300;
+  width: calc(100% - 32px);
+  font-size: 18px;
+  margin: 8px;
+  padding: 8px;
+  font-family: Raleway;
+}

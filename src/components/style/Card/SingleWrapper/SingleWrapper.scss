@@ -1,0 +1,12 @@
+@import 'variables.scss';
+
+.SingleWrapper {
+  position: relative;
+  margin: 60px auto;
+  height: 80vh;
+  width: 60%;
+  overflow: scroll;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px -5px $black;
+}
