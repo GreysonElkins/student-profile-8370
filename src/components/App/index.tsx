@@ -1,7 +1,5 @@
-import StudentProfiles from "components/Student/StudentProfiles"
+import SearchStudents from 'components/Student/SearchStudents'
 
-const App: React.FC = () => {
-  return <StudentProfiles />
-}
+const App: React.FC = () => <SearchStudents />
 
 export default App
