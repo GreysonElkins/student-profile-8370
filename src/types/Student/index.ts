@@ -61,7 +61,8 @@ class Student {
   hasMatchingProps = (query: string) => {
     const values = Object.values(this).map(value => `${value}`.toLowerCase())
     const queries = splitQuery(query)
-    return queries.every(query => values.some(value => value.includes(query)))
+    return queries.every(query => values.some(value => value.includes(query))) 
+    // I suspect line 64 could be achieved with a reduce and be more optimized. 
   }
 }
 
