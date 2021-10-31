@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;900&display=swap');
 
+$breakpoints: (
+  'mobile': 768px,
+  'smallTablet': 1015px,
+  'tablet': 1230px
+  
+) !default;
+
+@mixin onBreak($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` does not exist. "
+    + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
 $black: #191919;
 $white: #fff;
 $grey: rgb(241, 240, 241);

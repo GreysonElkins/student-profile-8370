@@ -8,11 +8,21 @@
   height: 28px;
   width: 28px;
   padding: 0;
+  @include onBreak('tablet') {
+    height: 25px;
+    width: 25px;
+  }
+  @include onBreak('smallTablet') {
+    height: 20px;
+    width: 20px;
+  }
+
   .bar {
     position: absolute;
     background: $greyThree;
     height: 5px;
-    width: 28px;
+    left: 0;
+    right: 0;
     border-radius: 5px;
     transition: background 250ms;
     top: 15px;

@@ -5,12 +5,30 @@
   padding: 20px 30px;
   border-bottom: 1px solid $greyTwo;
   display: flex;
+
+  transition: padding 500ms;
+  @include onBreak('mobile') {
+    padding: 20px 15px;
+  }
+
+  overflow-x: hidden;
+
   img {
     border-radius: 50%;
     width: 120px;
     height: 120px;
     border: 1px solid $greyTwo;
     margin-top: 5px;
+    
+    transition: width 1000ms, height 1000ms;
+    @include onBreak('smallTablet') {
+      width: 100px;
+      height: 100px;
+    }
+    @include onBreak('mobile') {
+      width: 50px;
+      height: 50px;
+    }
   }
 }
 
@@ -18,16 +36,41 @@
   position: absolute;
   right: 20px;
   top: 20px;
+
+  transition: top 500ms, right 500ms;
+  
+  @include onBreak('tablet') {
+    right: 15px;
+    top: 10px;
+  }
+  @include onBreak('smallTablet') {
+    right: 10px;
+    top: 3px;
+  }
+  @include onBreak('mobile') {
+    top: 0;
+  }
+  
 }
 
 .studentInfo {
   padding: 30px 30px 0;
   margin-left: 20px;
+
+  @include onBreak('mobile') {
+    margin-left: -10px;
+  }
+
   div {
     line-height: 1.3;  
     margin: 4px 0;
     color: $black;
     font-weight: 400;
+    transition: font-size 500ms;
+
+    @include onBreak('mobile') {
+      font-size: 12px;
+    }
   }
   h3 {
     margin: -35px -20px 10px;
@@ -38,13 +81,26 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    transition: font-size 500ms, margin 500ms;
+    @include onBreak('tablet') {
+      font-size: 30px;
+    }
+    @include onBreak('smallTablet') {
+      font-size: 20px;
+    }
+    @include onBreak('mobile') {
+      font-size: 16px;
+      margin: -40px 0px 10px;
+    }
   }
 }
 
 .studentTags {
-  width: 275px;
+  min-width: 200px;
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
 }
 
 .tagInput {
