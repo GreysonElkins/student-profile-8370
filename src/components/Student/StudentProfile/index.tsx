@@ -40,7 +40,7 @@ const StudentProfile: React.FC<Props> = ({ student }) => {
         {skill && <div>Skill: {skill}</div>}
         <div>Average: {average}%</div>
         {showGrades && <StudentGrades student={student} />}
-        <div>{printTags()}</div>
+        <div className="studentTags">{printTags()}</div>
         <UnderlinedTextField
           placeholder="Add a tag"
           onSubmit={value => setTags(prev => [...prev, value])}
