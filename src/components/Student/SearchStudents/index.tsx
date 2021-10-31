@@ -28,7 +28,7 @@ const SearchStudents: React.FC = () => {
       <SearchEngine
           data={students}
           matchRule="hasMatchingProps"
-          placeholder="Search by student or tags"
+          placeholder="Search by student and/or tags"
       > 
         {(data) => <StudentProfiles students={data} />}
       </SearchEngine>
