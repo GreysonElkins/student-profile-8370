@@ -30,12 +30,12 @@ const StudentProfile: React.FC<Props> = ({ student }) => {
         {company && <div>Company: {company}</div>}
         {skill && <div>Skill: {skill}</div>}
         <div>Average: {average}%</div>
+        {showGrades && <StudentGrades student={student} />}
         <UnderlinedTextField
           placeholder="Add a tag"
           onSubmit={() => console.log('success')}
           className="tagInput"
         />
-        {showGrades && <StudentGrades student={student} />}
       </div>
     </div>
   )
