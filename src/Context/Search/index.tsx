@@ -1,43 +1,33 @@
-import { createContext, useState, useContext, useEffect } from 'react'
+import { useState, useEffect, PropsWithChildren, ReactNode } from 'react'
 import UnderlinedTextField, { ChangeProps } from 'components/style/Field/UnderlinedTextField'
+import Student from 'types/Student'
 
-type Value = {
-  data: Array<{
-    [key: string]: any
-  }>
-}
+type SearchData = Student
+// other Data types would be allowed for here with `Student | Example | OtherData`
 
-interface Props extends Omit<ChangeProps, 'onChange'> {
-  dataSet: Array<{
-    [key: string]: any
-  }>
+interface Props<D extends SearchData> extends Omit<ChangeProps, 'onChange'> {
+  data: D[]
   matchRule: string
-  children: (data: any[]) => JSX.Element[]
+  children: (data: D[]) => ReactNode
 }
 
-const SearchContext = createContext({} as Value)
-
-export const SearchProvider: React.FC<Props> = ({ children, matchRule, dataSet, ...props }) => {
+const SearchEngine = <D extends SearchData>({ children, matchRule, data, ...props }: PropsWithChildren<Props<D>>) => {
   const [query, setQuery] = useState<string>('')  
-  const [results, setResults] = useState<any[]>(dataSet)
+  const [results, setResults] = useState<D[]>(data)
 
   useEffect(() => {
-    if (!query) return setResults(dataSet)
-    const matches = dataSet.filter(data => data[matchRule](query) === true)
+    if (!query) return setResults(data)
+    const matches = data.filter(data => data[matchRule](query) === true)
     setResults(matches)
-  }, [query, dataSet])
+  }, [query, data])
 
   return (
-    <SearchContext.Provider
-      value={{
-        data: results
-      }}
-    >
+    <>
       <UnderlinedTextField {...props} onChange={({ target }) => setQuery(target.value)} />
-      {query && results.length === 0 && <div>No students were found</div>}
+      {query && results.length === 0 && <div>No result were found</div>}
       {children(results)}
-    </SearchContext.Provider>
+    </>
   )
 }
 
-export const useSearch = () => useContext(SearchContext)
+export default SearchEngine
