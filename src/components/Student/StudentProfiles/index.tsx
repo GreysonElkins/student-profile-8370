@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { getStudents } from 'scripts/API'
+import { SearchProvider } from 'Context/Search'
 
 import Student from 'types/Student'
 import StudentProfile from '../StudentProfile'
-import UnderlinedTextField from 'components/style/Field/UnderlinedTextField'
 import './StudentProfiles.scss'
 
 const StudentProfiles: React.FC = () => {
@@ -20,18 +20,20 @@ const StudentProfiles: React.FC = () => {
    })
   }, [])
 
-  const printStudentProfiles = () =>
-    students.map((student, i) => <StudentProfile student={student} key={`${student}-${i}`} />)
+  const printStudentProfiles = (data: Student[]) => 
+    data.map((student, i) => <StudentProfile student={student} key={`${student}-${i}`} />)
   
   if (!loading && students.length === 0) return <div className="noStudents">No students were found</div>
 
   return (
     <div className="StudentProfiles">
-      <UnderlinedTextField
-        placeholder="Search by student, or tags"
-        onChange={(e) => console.log(e)}
-      />
-      {printStudentProfiles()}
+      <SearchProvider
+        dataSet={students}
+        matchRule="hasMatchingProps"
+        placeholder="Search by student or tags"
+      >
+        {(data) => printStudentProfiles(data)}
+      </SearchProvider>
     </div>
   )
 }
