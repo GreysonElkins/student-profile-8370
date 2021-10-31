@@ -3,7 +3,14 @@ import UnderlinedTextField, { ChangeProps } from 'components/style/Field/Underli
 import Student from 'types/Student'
 import './SearchEngine.scss'
 
-type SearchData = Student
+type Example = {
+  [key: string]: any
+  name: string
+  age: number
+  member: boolean
+}
+
+type SearchData = Student | Example
 // other Data types would be allowed for here with `Student | Example | OtherData`
 
 interface Props<D extends SearchData> extends Omit<ChangeProps, 'onChange'> {
