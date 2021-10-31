@@ -1,3 +1,5 @@
+import { splitQuery } from 'scripts/search'
+
 export type ApiStudent = {
   city?: string
   company?: string
@@ -56,8 +58,9 @@ class Student {
     this.tags = tags || []
   }
 
-  hasMatchingProps = (queries: string[]) => {
+  hasMatchingProps = (query: string) => {
     const values = Object.values(this).flat()
+    const queries = splitQuery(query)
     return queries.every(query => values.includes(query))
   }
 }
