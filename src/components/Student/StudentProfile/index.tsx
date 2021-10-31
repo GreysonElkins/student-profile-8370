@@ -12,11 +12,11 @@ type Props = {
 }
 
 const StudentProfile: React.FC<Props> = ({ student }) => {
-  const { average, company, email, firstName, lastName, pic, skill, tags: existingTags } = student
+  const { id, average, company, email, firstName, lastName, pic, skill, tags: existingTags } = student
   const [tags, setTags] = useState<string[]>(existingTags)
   const [showGrades, setShowGrades] = useState<boolean>(false)
   
-  const printTags = () => tags.map(tag => <Pill>{tag}</Pill>)
+  const printTags = () => tags.map((tag, i) => <Pill key={`${id}-tag-${i}`}>{tag}</Pill>)
 
   // useEffect(() => {
     // update in-app data (student.updateTags)
