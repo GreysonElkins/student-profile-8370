@@ -32,6 +32,9 @@ describe('SearchStudents', () => {
 
 
   describe('Search results', () => {
+    // these could be more thoroughly tested for integration with a closer examination of the results
+    // but for now that will be covered in testing of StudentProfile
+    
     let searchBar = null as null | HTMLElement
 
     beforeEach(() => {
