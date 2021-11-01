@@ -29,7 +29,7 @@ const StudentProfile: React.FC<Props> = ({ student }) => {
     <div className="StudentProfile">
       {pic && <img src={pic} alt={`${firstName ? firstName : 'unnamed student'}'s picture`} />}
       {grades.length > 0 && <div className="profileExtendButton">
-        <PlusMinus onClick={(isOpen) => setShowGrades(isOpen)} />
+        <PlusMinus onClick={(isOpen) => setShowGrades(isOpen)} name={`Open ${firstName} grades`}/>
       </div>}
       <div className="studentInfo">
         {(firstName || lastName) && (

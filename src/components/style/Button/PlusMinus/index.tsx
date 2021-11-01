@@ -3,9 +3,10 @@ import './PlusMinus.scss'
 
 type Props = {
   onClick: (trigger: boolean) => void
+  name: string
 }
 
-const PlusMinus: React.FC<Props> = ({ onClick }) => {
+const PlusMinus: React.FC<Props> = ({ onClick, name }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const PlusMinus: React.FC<Props> = ({ onClick }) => {
   return (
     <button 
       className="PlusMinus"
+      aria-label={name}
       onClick={() => {
         setIsOpen(prev => !prev) 
     }}>
