@@ -6,7 +6,7 @@ const StudentProfiles: React.FC<{ students: Student[] }> = ({ students }) => {
     students.map((student, i) => <StudentProfile student={student} key={`${student}-${i}`} />)
 
   return (
-    <div>
+    <div className="StudentProfiles">
       {printStudentProfiles()}
     </div>
   )
