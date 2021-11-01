@@ -40,7 +40,7 @@ const SearchEngine = <D extends SearchData>({ children, matchRule, data, ...prop
     <>
       <div className="engineHeader">
         <UnderlinedTextField {...props} className="trimmedTextField" onChange={value => setQuery(value)} />
-        {query && results.length === 0 && <div>No result were found</div>}
+        {query && results.length === 0 && <div className="noResults">No result were found</div>}
       </div>
       {children(results)}
     </>
