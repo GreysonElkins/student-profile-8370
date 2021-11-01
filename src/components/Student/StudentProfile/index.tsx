@@ -12,7 +12,7 @@ type Props = {
 }
 
 const StudentProfile: React.FC<Props> = ({ student }) => {
-  const { id, average, company, email, firstName, lastName, pic, skill, tags: existingTags } = student
+  const { grades, id, average, company, email, firstName, lastName, pic, skill, tags: existingTags } = student
   const [tags, setTags] = useState<string[]>(existingTags)
   const [showGrades, setShowGrades] = useState<boolean>(false)
   
@@ -27,10 +27,10 @@ const StudentProfile: React.FC<Props> = ({ student }) => {
 
   return (
     <div className="StudentProfile">
-      {pic && <img src={pic} alt={`${firstName ? firstName : 'unnamed student'}'s picture'`} />}
-      <div className="profileExtendButton">
+      {pic && <img src={pic} alt={`${firstName ? firstName : 'unnamed student'}'s picture`} />}
+      {grades.length > 0 && <div className="profileExtendButton">
         <PlusMinus onClick={(isOpen) => setShowGrades(isOpen)} />
-      </div>
+      </div>}
       <div className="studentInfo">
         {(firstName || lastName) && (
           <h3>
