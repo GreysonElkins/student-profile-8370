@@ -12,6 +12,13 @@ type Example = {
 
 type SearchData = Student | Example
 // other Data types would be allowed for here with `Student | Example | OtherData`
+// but I don't feel like this quite hits the mark
+  // I'd rather Props<D> and check that D is
+  // an Array<{ [key: string]: any, hasMatchingProps: (query: string) => boolean }
+// eliminating the need for `matchRule`
+// Since D is used to type results anyway, 
+// We don't actually need to specify what types can be passed in as SearchData 
+// this was originally for the sake of the child components 
 
 interface Props<D extends SearchData> extends Omit<ChangeProps, 'onChange'> {
   data: D[]
